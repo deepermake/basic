@@ -12,9 +12,11 @@ import java.util.List;
  */
 public class StudentTest {
     public static void main(String[] args) throws ClassNotFoundException {
-
+        // 反射
         Class object = Class.forName("com.dlh.Student");
+        // 获取字段
         List<Field> fields = Arrays.asList(object.getDeclaredFields());
+        // 获取注解
         StuAnnotation annotation = (StuAnnotation) object.getAnnotation(StuAnnotation.class);
         System.out.println(object.getName()+" annotation info:"+annotation.value()+", "+annotation.type()+", "+annotation.length());
 
