@@ -1,5 +1,6 @@
 package com.dlh;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,7 +14,7 @@ import java.util.List;
  * @date 2020/3/13 9:35
  */
 public class StudentTest {
-    public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
+    public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException, NoSuchFieldException {
         Student student = new Student();
         // 反射
         Class object = Class.forName("com.dlh.Student");
@@ -36,6 +37,22 @@ public class StudentTest {
             }
         }
         System.out.println(student.toString());
+
+        // 通过反射获取无参构造器
+        Student stu2 = (Student) object.newInstance();
+
+        // 通过反射获取有参构造器
+        Constructor<Student> s = object.getConstructor(String.class, int.class);
+        Student stu = s.newInstance("dlh2", 26);
+        System.out.println(stu.toString());
+
+        // 通过反射来操作属性
+        Field f = object.getDeclaredField("age");
+        // 访问私有属性/变量
+        f.setAccessible(true);
+        f.set(stu2, 27);
+        System.out.println("方法1：stu2.age = "+f.get(stu2));
+        System.out.println("方法2：stu2.age = "+stu2.getAge());
 
     }
 }

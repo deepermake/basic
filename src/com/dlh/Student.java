@@ -31,6 +31,14 @@ public class Student {
         this.age = age;
     }
 
+    // 无参构造器
+    public Student(){}
+
+    public Student(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
