@@ -1,5 +1,8 @@
 package com.proxy.staticProxy;
 
+/**
+ * 真实明星
+ */
 public class RealStar implements Star{
 
     @Override

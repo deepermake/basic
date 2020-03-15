@@ -1,5 +1,8 @@
 package com.proxy.staticProxy;
 
+/**
+ * 代理类
+ */
 public class Proxy implements Star{
 
     private Star star;
