@@ -11,5 +11,6 @@ public class Client {
         StarHandle starHandle = new StarHandle(realStar);
         Star proxy = (Star) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(), new Class[]{Star.class}, starHandle);
         proxy.sing();
+        proxy.collectMoney();
     }
 }
