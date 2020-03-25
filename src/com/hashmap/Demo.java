@@ -14,11 +14,24 @@ public class Demo {
     private static final int MAXIMUM_CAPACITY = 1 << 30;
 
     public static void main(String[] args){
+
+        Map<String, Integer> map = new HashMap<>();
+        map.put("ZhangYi",98);
+        map.put("WangEr",99);
+        map.put("ZhangShan",89);
+        map.put("Lisi",92);
+
+
         int result = testTableSizeFor(11);
         System.out.println(result);
 
     }
 
+    /**
+     * hashMap中取一个大于该长度且最小的2的指数次幂
+     * @param cap
+     * @return
+     */
     private static int testTableSizeFor(int cap) {
         int n = cap - 1;
         n |= n >>> 1;
