@@ -2,11 +2,12 @@ package com.newFeaturesJDK18;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
  *
- * @description jdk1.8新特性filter
+ * @description jdk1.8新特性stream内部方法filter
  * @author 邓联海
  * @date 2020/5/20 10:32
  */
@@ -23,6 +24,8 @@ public class FilterDemo {
         lists.add(a1);
         lists.add(a2);
         lists.add(a3);
-        lists.stream().filter(item -> item.contains("aaa"));
+        List<String> arr = lists.stream().filter(item -> item.contains("aaa")).collect(Collectors.toList());
+        long count = lists.stream().filter(item -> item.contains("aaa")).count();
+        System.out.println(arr);
     }
 }
