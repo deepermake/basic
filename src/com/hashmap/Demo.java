@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author 邓联海
@@ -16,28 +17,30 @@ public class Demo {
 
     public static void main(String[] args) {
         //多线程验证HashMap的线程安全性
-        Map<Double, Double> map = new HashMap<>();
-        for (int i = 0; i < 1000; i++) {
+        Map<Integer, Integer> map = new HashMap<>(16);
+        for (int i = 0; i < 10; i++) {
+            int finalI = i;
+            int finalI1 = i;
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     Double e = Math.random();
-                    map.put(e, e);
-                    map.remove(e);
+                    map.put(finalI, finalI1);
                 }
             }).start();
         }
-        System.out.println(map.size());
+
+        System.out.println("HashMap size:"+map.size());
 
         //多线程测试ConcurrentHashMap的线程安全性
-        Map<Double, Double> concurrentHashMap = new ConcurrentHashMap<>();
-        for (int i = 0; i < 1000; i++) {
+        ConcurrentHashMap<Integer, AtomicInteger> concurrentHashMap = new ConcurrentHashMap<>(16);
+        for (int i = 0; i < 10; i++) {
+            int finalI = i;
+            AtomicInteger finalI2 = new AtomicInteger(i);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Double e = Math.random();
-                    concurrentHashMap.put(e, e);
-                    concurrentHashMap.remove(e);
+                    concurrentHashMap.put(finalI, finalI2);
                 }
             }).start();
         }
