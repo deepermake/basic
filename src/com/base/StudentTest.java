@@ -1,4 +1,4 @@
-package com.dlh;
+package com.base;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -17,7 +17,7 @@ public class StudentTest {
     public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException, NoSuchFieldException {
         Student student = new Student();
         // 反射
-        Class object = Class.forName("com.dlh.Student");
+        Class object = Class.forName("com.base.Student");
         // 获取类字段
         List<Field> fields = Arrays.asList(object.getDeclaredFields());
         // 获取类方法

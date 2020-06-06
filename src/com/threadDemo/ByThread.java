@@ -1,5 +1,7 @@
 package com.threadDemo;
 
+import com.base.SynchronizedDemo;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -9,19 +11,26 @@ public class ByThread extends Thread {
 
     static volatile int count = 0;
 
+    SynchronizedDemo synchronizedDemo = new SynchronizedDemo();
+
     public ByThread(){}
 
     @Override
-    public synchronized void run() {
-        count = count + 1;
+    public void run() {
+        // count = count + 1;
+        // synchronizedDemo.print2(super.getName());
+        SynchronizedDemo.print(super.getName());
+
     }
 
     public static void main(String[] args){
-        for (int i = 0 ;i < 100 ;i++){
             ByThread thread = new ByThread();
+            thread.setName("线程AA");
+            ByThread thread1 = new ByThread();
+            thread1.setName("线程BB");
             thread.start();
-        }
+            thread1.start();
 
-        System.out.println(count);
+        //System.out.println(count);
     }
 }
