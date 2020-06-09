@@ -12,5 +12,5 @@ import java.util.concurrent.TimeUnit;
  * @date 2020/6/9 15:52
  */
 public class ThreadPoolUtils {
-    private static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 10, 3000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(1000));
+    public static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 10, 3000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(1000));
 }

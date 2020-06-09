@@ -59,6 +59,17 @@ public class ByThread extends Thread {
             thread1.start();
             thread2.start();
 
+            // todo: 线程池
+            //            for (int i = 0; i<10; i++){
+            //                ThreadPoolUtils.threadPoolExecutor.execute(() -> {
+            //                    try {
+            //                        new LockDemo().printInfo(Thread.currentThread().getName());
+            //                    } catch (InterruptedException e) {
+            //                        e.printStackTrace();
+            //                    }
+            //                });
+            //            }
+
         //System.out.println(count);
     }
 
