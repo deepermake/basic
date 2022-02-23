@@ -26,9 +26,7 @@ public class AddBinary {
             int re = aTemp + bTemp + tem;
             switch (re){
                 case 0:
-                    if (i <= a.length() && j <= b.length()) {
-                        result.append("0");
-                    }
+                    result.append(0);
                     tem = 0;
                     break;
                 case 1:
