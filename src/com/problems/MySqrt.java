@@ -7,21 +7,27 @@ package com.problems;
  */
 public class MySqrt {
     public static void main(String[] args) {
-        System.out.println(mySqrt(10));
+        System.out.println(mySqrt(16));
     }
 
     public static int mySqrt(int x) {
+        if (x == 0) {
+            return 0;
+        }
+        if (x == 1){
+            return 1;
+        }
         int sqrtMax = x;
         int sqrtMin = 0;
         int sqrtNum = x;
 
-        while (sqrtNum * sqrtNum >= x) {
+        while (sqrtNum >= x / sqrtNum) {
             sqrtNum = sqrtNum / 2;
-            if (sqrtNum * sqrtNum < x) {
+            if (sqrtNum < x / sqrtNum) {
                 sqrtMin = sqrtNum;
             } else if (sqrtNum * sqrtNum == x) {
                 return sqrtNum;
-            } else if (sqrtNum * sqrtNum > x) {
+            } else if (sqrtNum > x / sqrtNum) {
                 sqrtMax = sqrtNum;
             }
         }
@@ -30,7 +36,7 @@ public class MySqrt {
             if (i * i == x) {
                 return i;
             }
-            if (i * i < x && (i + 1) * (i + 1) > x) {
+            if (i <= x / i && (i + 1) > x / (i + 1)) {
                 return i;
             }
         }
