@@ -9,15 +9,22 @@ package com.problems;
 
 public class MaxSubArray {
     public static void main(String[] args) {
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int[] nums = {-2,1};
         System.out.println(maxSubArray(nums));
     }
 
     public static int maxSubArray(int[] nums) {
-        int pre = 0 , max = nums[0];
+        int max = nums[0];
+        int pre = 0;
         for (int x : nums) {
-            pre = Math.max(x, pre + x);
-            max = Math.max(pre, max);
+            if (pre + x <= x) {
+                pre = x;
+            } else {
+                pre = pre + x;
+            }
+            if (pre > max) {
+                max = pre;
+            }
         }
         return max;
     }
