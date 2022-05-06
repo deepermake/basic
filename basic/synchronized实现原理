@@ -1,0 +1,29 @@
+### synchronized的三种用法
+
+    第一种：synchronized修饰代码块
+
+```java
+synchronized(Object){
+        // 代码块
+        }
+```
+
+    第二种：synchronized修饰方法
+
+```java
+public synchronized void method(){
+        // 代码块
+        }
+```
+
+    第三种：synchronized修饰静态方法
+
+```java
+public static synchronized void method(){
+        // 代码块
+        }
+```
+
+### synchronized是如何工作的？它锁的是什么？
+
+### synchronized锁升级过程
