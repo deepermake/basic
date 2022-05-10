@@ -1,9 +1,8 @@
 package com.threadDemo;
 
 import com.base.LockDemo;
-import com.base.SynchronizedDemo;
+import com.synchronizedDemo.SynchronizedDemo;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 

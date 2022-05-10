@@ -1,6 +1,6 @@
 ### synchronized的三种用法
 
-    第一种：synchronized修饰代码块
+    第一种：synchronized修饰代码块，锁住的是Object
 
 ```java
 synchronized(Object){
@@ -8,7 +8,7 @@ synchronized(Object){
         }
 ```
 
-    第二种：synchronized修饰方法
+    第二种：synchronized修饰方法，锁住的是调用method的实例
 
 ```java
 public synchronized void method(){
@@ -16,13 +16,15 @@ public synchronized void method(){
         }
 ```
 
-    第三种：synchronized修饰静态方法
+    第三种：synchronized修饰静态方法，锁住的是调用method的对象
 
 ```java
 public static synchronized void method(){
         // 代码块
         }
 ```
+
+        参考 synchronizedDemo.SynchronizedDemo代码
 
 ### synchronized是如何工作的？它锁的是什么？
 
