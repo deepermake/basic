@@ -12,8 +12,8 @@ public class MyThread extends Thread {
         SynchronizedDemo synchronizedDemo = new SynchronizedDemo();
         try {
             synchronizedDemo.print2(super.getName());
-            SynchronizedDemo.print(super.getName());
-            synchronizedDemo.printMethod(super.getName());
+            // SynchronizedDemo.print(super.getName());
+            // synchronizedDemo.printMethod(super.getName());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,5 +1,7 @@
 package com.synchronizedDemo;
 
+import org.openjdk.jol.info.ClassLayout;
+
 /**
  * @author 邓联海
  * @description 测试synchronized关键字的功能
@@ -27,9 +29,11 @@ public class SynchronizedDemo {
      * @throws InterruptedException
      */
     public synchronized void print2(String threadName) throws InterruptedException {
+        System.out.println(ClassLayout.parseInstance(this).toPrintable());
         System.out.println(threadName + " print2 开始");
         Thread.sleep(2000);
         System.out.println(threadName + " print2 结束");
+
     }
 
     /**
