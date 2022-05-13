@@ -28,4 +28,6 @@ public static synchronized void method(){
 
 ### synchronized是如何工作的？它锁的是什么？
 
+
+
 ### synchronized锁升级过程

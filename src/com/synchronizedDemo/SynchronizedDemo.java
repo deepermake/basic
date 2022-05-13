@@ -44,6 +44,7 @@ public class SynchronizedDemo {
      */
     public void printMethod(Object object) throws InterruptedException {
         synchronized (object) {
+            System.out.println(ClassLayout.parseInstance(object).toPrintable());
             System.out.println(object + " printMethod 开始");
             Thread.sleep(2000);
             System.out.println(object + " printMethod 结束");
