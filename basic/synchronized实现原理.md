@@ -30,8 +30,9 @@ public static synchronized void method(){
 synchronized锁的是对象，那么在单/多程环境,线程和对象的关联关系是如何维护的？这就要扯到一个叫<mark>对象头</mark>的东西
 <img src="/img/JVM中对象布局.png"/>
 
-    Mark Word:
-    Class Point:
+    Mark Word:存储自身的运行时数据，例如HashCode、GC年龄、锁相关信息
+    Klass Point:类型指针指向它的类元数据的指针
+
 
 
 
