@@ -16,7 +16,7 @@ public class SynchronizedLockUpgradeDemo {
         System.out.println("初始化，======== 无锁 ========");
         System.out.println(classLayout.toPrintable());
 
-        // 需要通过 -XX:BiasedLockingStartupDelay=0 关闭偏向锁延时打开
+        // 需要通过 -XX:BiasedLockingStartupDelay=0 偏向锁延时=0，JVM默认为4s
         new Thread(new C()).start();
         System.out.println("初始化，======== 偏向锁 ========");
         System.out.println(classLayout.toPrintable());
