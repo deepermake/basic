@@ -8,37 +8,44 @@ import org.openjdk.jol.info.ClassLayout;
  * @createTime 2022/5/13 17:02
  */
 public class SynchronizedLockUpgradeDemo {
+    static C c = new C();
+
     public static void main(String[] args) throws InterruptedException {
-        C c = new C();
+
         ClassLayout classLayout = ClassLayout.parseInstance(c);
-        System.out.println("初始化，s对象头信息：");
+        System.out.println("初始化，======== 无锁 ========");
         System.out.println(classLayout.toPrintable());
 
-        synchronized (c) {
-            System.out.println("获取锁， s对象头");
-            System.out.println(classLayout.toPrintable());
+        // 需要通过 -XX:BiasedLockingStartupDelay=0 关闭偏向锁延时打开
+        new Thread(new C()).start();
+        System.out.println("初始化，======== 偏向锁 ========");
+        System.out.println(classLayout.toPrintable());
+
+        new Thread(new C()).start();
+        System.out.println("初始化，======== 轻量级锁 ========");
+        System.out.println(classLayout.toPrintable());
+
+        for (int i = 0; i<100; i++){
+            new Thread(new C()).start();
         }
+        System.out.println("初始化，======== 重量级锁 ========");
+        System.out.println(classLayout.toPrintable());
 
-        Thread t = new Thread(() -> {
-            synchronized (c) {
-                System.out.println("t线程获取锁后，s对象头：");
-                System.out.println(classLayout.toPrintable());
-            }
-        });
-        t.start();
-        t.join();
-
-        Thread t2 = new Thread(() -> {
-            synchronized (c) {
-                System.out.println("t2线程获取锁后，s对象头：");
-                System.out.println(classLayout.toPrintable());
-            }
-        });
-        t2.start();
-
+        Thread.sleep(10000);
+        System.out.println("======= 释放锁 ========");
+        System.out.println(classLayout.toPrintable());
 
     }
 
-    public static class C {
+    public static class C implements Runnable {
+        @Override
+        public void run() {
+            synchronized (c) {
+                String test = "";
+                for (int i = 0; i < 1000; i++) {
+                    test = test.concat(String.valueOf(i));
+                }
+            }
+        }
     }
 }
