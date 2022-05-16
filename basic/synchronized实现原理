@@ -27,7 +27,11 @@ public static synchronized void method(){
         参考 synchronizedDemo.SynchronizedDemo代码
 
 ### synchronized是如何工作的？它锁的是什么？
+synchronized锁的是对象，那么在单/多程环境,线程和对象的关联关系是如何维护的？这就要扯到一个叫<mark>对象头</mark>的东西
+<img src="/img/JVM中对象布局.png"/>
+
 
 
 
 ### synchronized锁升级过程
+<div align="center"><img src="img/synchronized锁升级过程.png"></div>
