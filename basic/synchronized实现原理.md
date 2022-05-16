@@ -30,8 +30,11 @@ public static synchronized void method(){
 synchronized锁的是对象，那么在单/多程环境,线程和对象的关联关系是如何维护的？这就要扯到一个叫<mark>对象头</mark>的东西
 <img src="/img/JVM中对象布局.png"/>
 
+    Mark Word:
+    Class Point:
+
 
 
 
 ### synchronized锁升级过程
-<div align="center"><img src="img/synchronized锁升级过程.png"></div>
+<div align="center"><img src="https://github.com/deepermake/basic/blob/master/basic/img/synchronized%E9%94%81%E5%8D%87%E7%BA%A7%E8%BF%87%E7%A8%8B.png"></div>
