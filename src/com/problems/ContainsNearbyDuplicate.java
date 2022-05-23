@@ -12,19 +12,38 @@ import java.util.Set;
 public class ContainsNearbyDuplicate {
 
     public static void main(String[] args) {
-        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1}, 3));
+        System.out.println(containsNearbyDuplicateBySet(new int[]{1,2,3,1,2,3}, 2));
     }
 
     public static boolean containsNearbyDuplicate(int[] nums, int k) {
-        Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < nums.length - 1; i++) {
-            for (int j = 1; j < nums.length - 1; j++) {
-                if (nums[i] == nums[j]) {
-
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 1; j < nums.length; j++) {
+                if (i == j) {
+                    continue;
+                }
+                int m = j - i;
+                if (nums[i] == nums[j] && m >= -k && m <= k) {
+                    return true;
                 }
             }
         }
-        Math.abs(-3);
+        return false;
+    }
+
+    public static boolean containsNearbyDuplicateBySet(int[] nums, int k) {
+        Set<Integer> set = new HashSet<>();
+        int left = 0, right = left + k;
+        while (left < nums.length) {
+            if (!set.add(nums[left])) {
+                return true;
+            }
+            if (left == right) {
+                set.remove(nums[right - left]);
+                right = left + k;
+            }
+            left++;
+        }
+
         return false;
     }
 }
