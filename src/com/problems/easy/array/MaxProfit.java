@@ -1,4 +1,4 @@
-package com.problems.array;
+package com.problems.easy.array;
 
 /**
  * Description: 121. 买卖股票的最佳时机
