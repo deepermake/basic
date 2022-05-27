@@ -9,7 +9,7 @@ package com.problems.easy.array;
 public class MoveZeroes {
 
     public static void main(String[] args) {
-        moveZeroes(new int[]{4,2,4,0,0,3,0,5,1,0});
+        moveZeroes(new int[]{0,1,0,1});
     }
 
     public static void moveZeroes(int[] nums) {
@@ -18,12 +18,12 @@ public class MoveZeroes {
         }
         int i = 0, j = 1;
         while (j < nums.length){
-            if (nums[i] != 0 && nums[j] == 0){
+            if (nums[i] != 0){
                 i++;
                 j++;
                 continue;
             }
-            if (nums[i] == 0 && nums[j] != 0){
+            if (nums[j] != 0){
                 nums[i] = nums[j];
                 nums[j] = 0;
                 i++;j++;
