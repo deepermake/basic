@@ -11,15 +11,15 @@ public class TreeNode {
     /**
      * 节点值
      */
-    int value;
+    public int val;
     /**
      * 左节点
      */
-    TreeNode left;
+    public TreeNode left;
     /**
      * 右节点
      */
-    TreeNode right;
+    public TreeNode right;
 
     /**
      * 根节点
@@ -29,12 +29,12 @@ public class TreeNode {
     TreeNode() {
     }
 
-    TreeNode(int value) {
-        this.value = value;
+    TreeNode(int val) {
+        this.val = val;
     }
 
-    TreeNode(int value, TreeNode left, TreeNode right) {
-        this.value = value;
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
         this.left = left;
         this.right = right;
     }
@@ -42,9 +42,9 @@ public class TreeNode {
     /**
      * 前序遍历初始化一棵树
      *
-     * @param treeValues
+     * @param treevals
      */
-    void initTree(List<Integer> treeValues) {
+    void initTree(List<Integer> treevals) {
 
     }
 
