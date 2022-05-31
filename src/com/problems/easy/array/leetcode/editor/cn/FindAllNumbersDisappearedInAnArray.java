@@ -1,7 +1,9 @@
 package com.problems.easy.array.leetcode.editor.cn;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Description: 448 找到所有数组中消失的数字
@@ -19,16 +21,14 @@ public class FindAllNumbersDisappearedInAnArray {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<Integer> findDisappearedNumbers(int[] nums) {
-            List<Integer> list = new ArrayList<>();
+            Set<Integer> set = new HashSet<>();
             for (int i = 1; i <= nums.length; i++) {
-                list.add(i);
+                set.add(i);
             }
             for (Integer x : nums) {
-                if (list.contains(x)) {
-                    list.remove(x);
-                }
+                set.remove(x);
             }
-            return list;
+            return new ArrayList<>(set);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
