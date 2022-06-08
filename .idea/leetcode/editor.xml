@@ -17,10 +17,10 @@
         <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[32]最长有效括号.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[32]最长有效括号.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/doc/content/LongestValidParentheses.md" />
               <option name="frontendQuestionId" value="leetcode.cn32" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[32]最长有效括号.java" />
+              <option name="path" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/LongestValidParentheses.java" />
               <option name="titleSlug" value="longest-valid-parentheses" />
             </LeetcodeEditor>
           </value>
@@ -69,6 +69,17 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/ExcelSheetColumnTitle.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/doc/content/ExcelSheetColumnTitle.md" />
+              <option name="frontendQuestionId" value="leetcode.cn168" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/ExcelSheetColumnTitle.java" />
+              <option name="titleSlug" value="excel-sheet-column-title" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/FindAllNumbersDisappearedInAnArray.java">
           <value>
             <LeetcodeEditor>
@@ -80,6 +91,50 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/LongestCommonPrefix.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/doc/content/LongestCommonPrefix.md" />
+              <option name="frontendQuestionId" value="leetcode.cn14" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/LongestCommonPrefix.java" />
+              <option name="titleSlug" value="longest-common-prefix" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/LongestSubstringWithoutRepeatingCharacters.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/doc/content/LongestSubstringWithoutRepeatingCharacters.md" />
+              <option name="frontendQuestionId" value="leetcode.cn3" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/LongestSubstringWithoutRepeatingCharacters.java" />
+              <option name="titleSlug" value="longest-substring-without-repeating-characters" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/LongestValidParentheses.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/doc/content/LongestValidParentheses.md" />
+              <option name="frontendQuestionId" value="leetcode.cn32" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/LongestValidParentheses.java" />
+              <option name="titleSlug" value="longest-valid-parentheses" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/MaximumProfitOfOperatingACentennialWheel.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/doc/content/MaximumProfitOfOperatingACentennialWheel.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1599" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/MaximumProfitOfOperatingACentennialWheel.java" />
+              <option name="titleSlug" value="maximum-profit-of-operating-a-centennial-wheel" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/MinimumMovesToEqualArrayElements.java">
           <value>
             <LeetcodeEditor>
@@ -88,6 +143,17 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/MinimumMovesToEqualArrayElements.java" />
               <option name="titleSlug" value="minimum-moves-to-equal-array-elements" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/Shift2dGrid.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/doc/content/Shift2dGrid.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1260" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/com/problems/easy/array/leetcode/editor/cn/Shift2dGrid.java" />
+              <option name="titleSlug" value="shift-2d-grid" />
             </LeetcodeEditor>
           </value>
         </entry>
