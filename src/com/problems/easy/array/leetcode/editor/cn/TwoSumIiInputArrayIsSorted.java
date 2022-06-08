@@ -9,13 +9,29 @@ package com.problems.easy.array.leetcode.editor.cn;
 public class TwoSumIiInputArrayIsSorted {
     public static void main(String[] args) {
         Solution solution = new TwoSumIiInputArrayIsSorted().new Solution();
-        int[] nums = new int[]{2, 7, 11, 15};
-        solution.twoSum(nums, 9);
+        int[] nums = new int[]{1,0};
+        solution.twoSum(nums, 1);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] twoSum(int[] numbers, int target) {
+            int[] res = new int[2];
+            int i = 1, j = numbers.length;
+            while (i < j) {
+                if (target == numbers[i - 1] + numbers[j - 1]) {
+                    res[0] = i;
+                    res[1] = j;
+                    return res;
+                }
+                if (target < numbers[i - 1] + numbers[j - 1]) {
+                    j--;
+                    continue;
+                }
+                if (target > numbers[i - 1] + numbers[j - 1]) {
+                    i++;
+                }
+            }
             return null;
         }
     }
