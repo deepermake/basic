@@ -22,28 +22,22 @@ public class Shift2dGrid {
         public List<List<Integer>> shiftGrid(int[][] grid, int k) {
             List<List<Integer>> list = new ArrayList<>();
 
-            int y = grid.length;
-            int x = grid[0].length;
-            int nums = Math.multiplyExact(x, y);
-            if (k > nums) {
-                k = k / nums;
+            for (int i = 0; i < grid.length; i++) {
+                List<Integer> iList = new ArrayList<>();
+                for (int j = 0; j < grid[0].length; j++) {
+                    iList.add(grid[i][j]);
+                }
+                list.add(iList);
             }
 
-            for (int i = 0; i < y; i++) {
-                for (int j = 0; j < x; j++) {
-                    grid[(i + k) / y][(j + k) / x] = grid[i][j];
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[0].length; j++) {
+                    // 经过k次移动后得到新坐标
+                    int newI = 0;
+                    int newJ = 0;
+                    list.get(newI).set(newJ, grid[i][j]);
                 }
             }
-
-            for (int i = 0; i < y; i++) {
-                List<Integer> re = new ArrayList<>();
-                for (int j = 0; j < x; j++) {
-                    re.add(grid[i][j]);
-                }
-                list.add(re);
-            }
-
-
             return list;
         }
     }
