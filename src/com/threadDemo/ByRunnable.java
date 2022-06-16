@@ -14,6 +14,7 @@ public class ByRunnable implements Runnable{
 class myThread{
     public static void main(String[] args){
         Thread thread = new Thread(new ByRunnable());
+        thread.setName("xx_1");
         thread.start();
     }
 }

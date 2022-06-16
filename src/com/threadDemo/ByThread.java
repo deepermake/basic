@@ -46,7 +46,7 @@ public class ByThread extends Thread {
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
             ByThread thread = new ByThread();
             thread.setName("线程AA");
             ByThread thread1 = new ByThread();
@@ -55,19 +55,12 @@ public class ByThread extends Thread {
             ByThread thread2 = new ByThread();
             thread2.setName("线程CC");
             thread.start();
+            // join 方法的功能，使主线程阻塞，等待子线程执行完成后主线程继续执行。在这里，主线程是main执行线程，子线程是thread执行线程
+            thread.join();
             thread1.start();
+            thread1.join();
             thread2.start();
-
-            // todo: 线程池
-            for (int i = 0; i<10; i++){
-                ThreadPoolUtils.threadPoolExecutor.execute(() -> {
-                    try {
-                        new LockDemo().printInfo(Thread.currentThread().getName());
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
+            thread2.join();
 
         //System.out.println(count);
     }
