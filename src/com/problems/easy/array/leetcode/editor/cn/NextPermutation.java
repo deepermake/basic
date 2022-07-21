@@ -9,7 +9,7 @@ package com.problems.easy.array.leetcode.editor.cn;
 public class NextPermutation {
     public static void main(String[] args) {
         Solution solution = new NextPermutation().new Solution();
-        int[] nums = new int[]{1, 4, 6, 3, 7, 5};
+        int[] nums = new int[]{1, 4, 6, 3, 7, 5, 3, 4};
         solution.nextPermutation(nums);
     }
 
