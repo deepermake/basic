@@ -1,6 +1,7 @@
 package com.leecode.addTowNumbers;
 
 
+import java.util.List;
 import java.util.Objects;
 
 public class ListNode {
@@ -65,6 +66,13 @@ public class ListNode {
         return result.toString();
     }
 
+    /**
+     * 两数相加
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if (l1 == null || l2 == null) {
             return null;
@@ -109,15 +117,81 @@ public class ListNode {
 
     }
 
+
+    /**
+     * 链表排序
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode sortListNode(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        // 以slow为分割节点一分为二，左边为head 右边为temp
+        ListNode temp = slow.next;
+        slow.next = null;
+
+        ListNode left = sortListNode(head);
+        ListNode right = sortListNode(temp);
+
+        ListNode dum = new ListNode(0);
+        ListNode res = dum;
+        while (left != null && right != null) {
+            if (left.val > right.val) {
+                dum.next = right;
+                right = right.next;
+            } else {
+                dum.next = left;
+                left = left.next;
+            }
+            dum = dum.next;
+        }
+        dum.next = left != null ? left : right;
+        return res.next;
+    }
+
+
+    /**
+     * 去除重复链表
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode delRepeatNode(ListNode head) {
+        ListNode tmp = head, node = head.next;
+        while (node != null) {
+            if (Objects.equals(tmp.val, node.val)) {
+                node = node.next;
+                tmp.next = node;
+            } else {
+                tmp = tmp.next;
+                node = node.next;
+            }
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
-        Integer[] arr1 = new Integer[]{2, 4, 3};
+        Integer[] arr1 = new Integer[]{2, 4, 3, 1, 4, 6};
         ListNode listNode1 = ListNode.initNode(arr1);
         Integer[] arr2 = new Integer[]{5, 6, 4};
         ListNode listNode2 = ListNode.initNode(arr2);
-        ListNode result = ListNode.addTwoNumbers(listNode1, listNode2);
-        System.out.println(ListNode.printListNode(listNode1));
-        System.out.println(ListNode.printListNode(listNode2));
-        System.out.println(ListNode.printListNode(result));
+        Integer[] repeatNode = new Integer[]{1, 1, 2, 2,3,3,4,4};
+        ListNode repeatListNode = ListNode.initNode(repeatNode);
+        System.out.println(ListNode.printListNode(delRepeatNode(repeatListNode)));
+
+//        System.out.println(ListNode.printListNode(sortListNode(listNode1)));
+//
+//        ListNode result = ListNode.addTwoNumbers(listNode1, listNode2);
+//        System.out.println(ListNode.printListNode(listNode1));
+//        System.out.println(ListNode.printListNode(listNode2));
+//        System.out.println(ListNode.printListNode(result));
 
 
     }
