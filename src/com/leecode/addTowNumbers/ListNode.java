@@ -164,6 +164,9 @@ public class ListNode {
      * @return
      */
     public static ListNode delRepeatNode(ListNode head) {
+        if (head == null) {
+            return null;
+        }
         ListNode tmp = head, node = head.next;
         while (node != null) {
             if (Objects.equals(tmp.val, node.val)) {
@@ -182,7 +185,7 @@ public class ListNode {
         ListNode listNode1 = ListNode.initNode(arr1);
         Integer[] arr2 = new Integer[]{5, 6, 4};
         ListNode listNode2 = ListNode.initNode(arr2);
-        Integer[] repeatNode = new Integer[]{1, 1, 2, 2,3,3,4,4};
+        Integer[] repeatNode = new Integer[]{1, 1, 2, 2, 3, 3, 4, 4};
         ListNode repeatListNode = ListNode.initNode(repeatNode);
         System.out.println(ListNode.printListNode(delRepeatNode(repeatListNode)));
 
