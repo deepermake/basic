@@ -181,6 +181,7 @@ public class ListNode {
 
     /**
      * 删除元素
+     *
      * @param head
      * @param val
      * @return
@@ -194,7 +195,7 @@ public class ListNode {
             head = head.next;
         }
 
-        if (head == null){
+        if (head == null) {
             return null;
         }
 
@@ -202,12 +203,43 @@ public class ListNode {
         while (node != null) {
             if (tmp.next.val == val) {
                 tmp.next = node.next;
-            }else {
+            } else {
                 tmp = tmp.next;
             }
             node = node.next;
         }
         return head;
+    }
+
+    /**
+     * 二进制链表转整数
+     *
+     * @param head
+     * @return
+     */
+    public static int getDecimalValue(ListNode head) {
+        if (head == null) {
+            return 0;
+        }
+        if (head.next == null) {
+            return (int) Math.pow(2, 0) * head.val;
+        }
+
+        int index = 0;
+        ListNode temp = head;
+        while (temp.next != null) {
+            index++;
+            temp = temp.next;
+        }
+
+        double result = 0;
+        while (head != null) {
+            result = result + Math.pow(2, index) * head.val;
+            head = head.next;
+            index--;
+        }
+
+        return (int) result;
     }
 
 
@@ -228,9 +260,15 @@ public class ListNode {
 //        System.out.println(ListNode.printListNode(result));
 
         // 删除元素
-        ListNode removeNodes = ListNode.initNode(new Integer[]{1, 1, 2, 2, 3, 3, 4, 4});
-        System.out.println(ListNode.printListNode(removeElements(removeNodes, 1)));
+//        ListNode removeNodes = ListNode.initNode(new Integer[]{1, 1, 2, 2, 3, 3, 4, 4});
+//        System.out.println(ListNode.printListNode(removeElements(removeNodes, 1)));
 
+        ListNode getDecimalNode = ListNode.initNode(new Integer[]{1});
+        System.out.println(getDecimalValue(getDecimalNode));
+
+        // 1 -> 0 -> 1
+
+        // Math.pow(2, 0) * 1 + Math.pow(2, 1) * 0 + Math.pow(2, 2) * 1
 
     }
 
