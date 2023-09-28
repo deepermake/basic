@@ -1,7 +1,6 @@
 package com.leecode.addTowNumbers;
 
 
-import java.util.List;
 import java.util.Objects;
 
 public class ListNode {
@@ -180,6 +179,38 @@ public class ListNode {
         return head;
     }
 
+    /**
+     * 删除元素
+     * @param head
+     * @param val
+     * @return
+     */
+    public static ListNode removeElements(ListNode head, int val) {
+        if (head == null) {
+            return null;
+        }
+
+        while (head != null && head.val == val) {
+            head = head.next;
+        }
+
+        if (head == null){
+            return null;
+        }
+
+        ListNode tmp = head, node = head.next;
+        while (node != null) {
+            if (tmp.next.val == val) {
+                tmp.next = node.next;
+            }else {
+                tmp = tmp.next;
+            }
+            node = node.next;
+        }
+        return head;
+    }
+
+
     public static void main(String[] args) {
         Integer[] arr1 = new Integer[]{2, 4, 3, 1, 4, 6};
         ListNode listNode1 = ListNode.initNode(arr1);
@@ -187,7 +218,7 @@ public class ListNode {
         ListNode listNode2 = ListNode.initNode(arr2);
         Integer[] repeatNode = new Integer[]{1, 1, 2, 2, 3, 3, 4, 4};
         ListNode repeatListNode = ListNode.initNode(repeatNode);
-        System.out.println(ListNode.printListNode(delRepeatNode(repeatListNode)));
+        // System.out.println(ListNode.printListNode(delRepeatNode(repeatListNode)));
 
 //        System.out.println(ListNode.printListNode(sortListNode(listNode1)));
 //
@@ -195,6 +226,10 @@ public class ListNode {
 //        System.out.println(ListNode.printListNode(listNode1));
 //        System.out.println(ListNode.printListNode(listNode2));
 //        System.out.println(ListNode.printListNode(result));
+
+        // 删除元素
+        ListNode removeNodes = ListNode.initNode(new Integer[]{1, 1, 2, 2, 3, 3, 4, 4});
+        System.out.println(ListNode.printListNode(removeElements(removeNodes, 1)));
 
 
     }
