@@ -1,7 +1,9 @@
 package com.leecode.addTowNumbers;
 
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Stack;
 
 public class ListNode {
 
@@ -242,6 +244,35 @@ public class ListNode {
         return (int) result;
     }
 
+    /**
+     * 回文链表
+     *
+     * @param head
+     * @return
+     */
+    public static boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        ListNode temp = head;
+        while (temp != null) {
+            stack.push(temp.val);
+            temp = temp.next;
+        }
+
+        while (!stack.isEmpty()) {
+            Integer val = stack.pop();
+            if (!Objects.equals(val, head.val)) {
+                return false;
+            }
+            head = head.next;
+        }
+
+        return true;
+    }
+
 
     public static void main(String[] args) {
         Integer[] arr1 = new Integer[]{2, 4, 3, 1, 4, 6};
@@ -263,12 +294,12 @@ public class ListNode {
 //        ListNode removeNodes = ListNode.initNode(new Integer[]{1, 1, 2, 2, 3, 3, 4, 4});
 //        System.out.println(ListNode.printListNode(removeElements(removeNodes, 1)));
 
-        ListNode getDecimalNode = ListNode.initNode(new Integer[]{1});
-        System.out.println(getDecimalValue(getDecimalNode));
+//        ListNode getDecimalNode = ListNode.initNode(new Integer[]{1});
+//        System.out.println(getDecimalValue(getDecimalNode));
 
-        // 1 -> 0 -> 1
+        ListNode palindromeNode = ListNode.initNode(new Integer[]{1, 2, 2, 1});
+        System.out.println(isPalindrome(palindromeNode));
 
-        // Math.pow(2, 0) * 1 + Math.pow(2, 1) * 0 + Math.pow(2, 2) * 1
 
     }
 
