@@ -1,4 +1,4 @@
-package com.problems.easy.str;
+package com.problems.str.easy;
 
 public class NumberConvertToExcelTitle {
 

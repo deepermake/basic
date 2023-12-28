@@ -1,4 +1,4 @@
-package com.problems.easy.str;
+package com.problems.str.easy;
 
 /**
  * Excel 表列名称

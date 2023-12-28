@@ -1,7 +1,6 @@
-package com.problems.easy.str;
+package com.problems.str.easy;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class findTheDifference {
