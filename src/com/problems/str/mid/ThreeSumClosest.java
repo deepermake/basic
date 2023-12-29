@@ -1,18 +1,16 @@
 package com.problems.str.mid;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 16 - 最接近的三数之和
  */
 public class ThreeSumClosest {
     public static void main(String[] args) {
-//        System.out.println(threeSumClosest(new int[]{-1, 2, 1, -4}, 1));
-//        System.out.println(threeSumClosest(new int[]{0, 0, 0}, 2));
-//        System.out.println(threeSumClosest(new int[]{1, 5, 4,20,6,6,12}, 5));
-//        System.out.println(threeSumClosest(new int[]{-100,-2,90,1,1,4,1000}, 100));
+        System.out.println(threeSumClosest(new int[]{-1, 2, 1, -4}, 1));
+        System.out.println(threeSumClosest(new int[]{0, 0, 0}, 2));
+        System.out.println(threeSumClosest(new int[]{1, 5, 4, 20, 6, 6, 12}, 5));
+        System.out.println(threeSumClosest(new int[]{-100, -2, 90, 1, 1, 4, 1000}, 100));
         System.out.println(threeSumClosest(new int[]{4, 0, 5, -5, 3, 3, 0, -4, -5}, -2));
     }
 
@@ -24,7 +22,7 @@ public class ThreeSumClosest {
         // 最接近的数据
         int result = Integer.MAX_VALUE;
         // 最接近的距离
-        int closeDistance = result;
+        int closeDistance = Integer.MAX_VALUE;
 
         for (int i = 0; i < nums.length - 2; i++) {
             // 固定一位，其他两位通过移动计算
@@ -45,11 +43,11 @@ public class ThreeSumClosest {
                     closeDistance = currDistance;
                 }
 
-                if (closeDistance > target) {
+                if (currResult > target) {
                     k--;
                 }
 
-                if (closeDistance < target){
+                if (currResult < target) {
                     j++;
                 }
             }
