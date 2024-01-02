@@ -1,26 +1,38 @@
 package com.problems.str.easy;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
+/**
+ * 389 - 找不同
+ */
 public class findTheDifference {
     public static void main(String[] args) {
-
-        // todo
-        System.out.println(findTheDifference("abcd", "abcda"));
+        System.out.println(findTheDifference("aaa", "aaab"));
     }
 
     public static char findTheDifference(String s, String t) {
-        List<Integer> list = new ArrayList<>();
+        if (s.isEmpty()) {
+            return t.charAt(0);
+        }
+
+        int[] arrS = new int[s.length()];
+        int[] arrT = new int[t.length()];
         for (int i = 0; i < s.length(); i++) {
-            list.add(s.charAt(i) - 'a' + 1);
+            arrS[i] = s.charAt(i) - 'a';
         }
-        for (int j = 0; j<t.length(); j++){
-            if (!list.contains(t.charAt(j) - 'a' + 1)){
-                return t.charAt(j);
+        for (int j = 0; j < t.length(); j++) {
+            arrT[j] = t.charAt(j) - 'a';
+        }
+        Arrays.sort(arrS);
+        Arrays.sort(arrT);
+
+        for (int i = 0; i < s.length(); i++) {
+            if (arrS[i] == arrT[i]) {
+                continue;
             }
-            list.remove(list.indexOf(t.charAt(j) - 'a' + 1));
+            return (char) (arrT[i] + 'a');
         }
-        return 'a';
+
+        return (char) (arrT[s.length()] + 'a');
     }
 }
