@@ -273,32 +273,20 @@ public class ListNode {
         return true;
     }
 
+    /**
+     * 2487-从链表中移除元素
+     *
+     * @return
+     */
+    public static ListNode removeNodes(ListNode node) {
+        return null;
+    }
+
 
     public static void main(String[] args) {
-        Integer[] arr1 = new Integer[]{2, 4, 3, 1, 4, 6};
-        ListNode listNode1 = ListNode.initNode(arr1);
-        Integer[] arr2 = new Integer[]{5, 6, 4};
-        ListNode listNode2 = ListNode.initNode(arr2);
-        Integer[] repeatNode = new Integer[]{1, 1, 2, 2, 3, 3, 4, 4};
-        ListNode repeatListNode = ListNode.initNode(repeatNode);
-        // System.out.println(ListNode.printListNode(delRepeatNode(repeatListNode)));
-
-//        System.out.println(ListNode.printListNode(sortListNode(listNode1)));
-//
-//        ListNode result = ListNode.addTwoNumbers(listNode1, listNode2);
-//        System.out.println(ListNode.printListNode(listNode1));
-//        System.out.println(ListNode.printListNode(listNode2));
-//        System.out.println(ListNode.printListNode(result));
-
-        // 删除元素
-//        ListNode removeNodes = ListNode.initNode(new Integer[]{1, 1, 2, 2, 3, 3, 4, 4});
-//        System.out.println(ListNode.printListNode(removeElements(removeNodes, 1)));
-
-//        ListNode getDecimalNode = ListNode.initNode(new Integer[]{1});
-//        System.out.println(getDecimalValue(getDecimalNode));
-
-        ListNode palindromeNode = ListNode.initNode(new Integer[]{1, 2, 2, 1});
-        System.out.println(isPalindrome(palindromeNode));
+        Integer[] arr = new Integer[]{5, 2, 13, 3, 8};
+        ListNode node = ListNode.initNode(arr);
+        System.out.println(ListNode.printListNode(removeNodes(node)));
 
 
     }
