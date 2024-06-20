@@ -10,8 +10,7 @@ import java.util.Stack;
  */
 public class LongestValidParentheses {
     public static void main(String[] args) {
-        // (()))
-        System.out.println(longestValidParentheses("((())())"));
+        System.out.println(longestValidParentheses(")()())"));
     }
 
     public static int longestValidParentheses(String s) {
@@ -19,26 +18,24 @@ public class LongestValidParentheses {
             return 0;
         }
         int max = 0;
-        int count = 0;
-        int i = 0;
-        Stack<Character> stack = new Stack<>();
-        while (i < s.length()) {
-            if (stack.isEmpty()){
-                stack.push(s.charAt(i));
-                i++;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+
+        for (int i = 0; i < s.length(); i++) {
+            // 为“(”时将下表入栈
+            if (s.charAt(i) == '(') {
+                stack.push(i);
                 continue;
             }
-            if (s.charAt(i) == ')' && stack.peek() == '(') {
-                count += 2;
-                stack.pop();
-            } else if (s.charAt(i) == ')' && stack.peek() == ')'){
-                stack.push(s.charAt(i));
-                count = 0;
+            // pop栈内元素
+            stack.pop();
+            // 如果此时为空栈，更新栈底元素
+            if (stack.isEmpty()) {
+                stack.push(i);
+                continue;
             }
-
-            max = Math.max(count, max);
-
-            i++;
+            // 计算最值当前坐标-栈顶坐标
+            max = Math.max(max, i - stack.peek());
         }
         return max;
     }
