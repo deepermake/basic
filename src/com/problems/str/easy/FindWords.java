@@ -1,12 +1,13 @@
 package com.problems.str.easy;
 
-import sun.security.util.ArrayUtil;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+/**
+ * 500 - 键盘行
+ */
 public class FindWords {
 
     // qwertyuiop
