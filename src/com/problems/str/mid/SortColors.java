@@ -6,8 +6,8 @@ package com.problems.str.mid;
 public class SortColors {
 
     public static void main(String[] args) {
-        // sortColors(new int[]{2, 0, 0, 1, 2, 1, 0, 0, 0, 2, 1, 1, 2, 2, 2, 0, 2, 0, 0, 2, 1, 1, 0});
-        sortColors(new int[]{1});
+        sortColorNoExchange(new int[]{2, 0, 0, 1, 2, 1, 0, 0, 0, 2, 1, 1, 2, 2, 2, 0, 2, 0, 0, 2, 1, 1, 0});
+        //sortColors(new int[]{1});
     }
 
     public static void sortColors(int[] nums) {
@@ -35,5 +35,19 @@ public class SortColors {
             }
         }
 
+    }
+
+    public static void sortColorNoExchange(int[] nums) {
+        int zeroIndex = 0, oneIndex = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int temp = nums[i];
+            nums[i] = 2;
+            if (temp < 2) {
+                nums[oneIndex++] = 1;
+            }
+            if (temp < 1) {
+                nums[zeroIndex++] = 0;
+            }
+        }
     }
 }
