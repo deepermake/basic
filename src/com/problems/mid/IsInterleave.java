@@ -4,7 +4,7 @@ public class IsInterleave {
 
     public static void main(String[] args) {
         System.out.println(isInterleave("aabcc", "dbbca", "aadbbcbcac"));
-        // System.out.println(isInterleave("aabcc", "dbbca", "aadbbbaccc"));
+        System.out.println(isInterleave("aabcc", "dbbca", "aadbbbaccc"));
     }
 
     // f(s1) + f(s2) = f(s3)
@@ -21,13 +21,13 @@ public class IsInterleave {
 
         boolean[][] f = new boolean[s1.length() + 1][s2.length() + 1];
         f[0][0] = true;
-        for (int l1 = 0; l1 < s1.length(); ++l1) {
-            for (int l2 = 0; l2 < s2.length(); ++l2) {
-                if (l1 > 0) {
-                    f[l1][l2] = s1.charAt(l1 - 1) == s3.charAt(l1 + l2 - 1) && f[l1 - 1][l2];
+        for (int i = 0; i <= s1.length(); i++) {
+            for (int j = 0; j <= s2.length(); j++) {
+                if (j > 0) {
+                    f[i][j] = s2.charAt(j - 1) == s3.charAt(j + i - 1) && f[i][j - 1];
                 }
-                if (l2 > 0) {
-                    f[l1][l2] = s2.charAt(l2 - 1) == s3.charAt(l1 + l2 - 1) && f[l1][l2 - 1];
+                if (i > 0) {
+                    f[i][j] = s1.charAt(i - 1) == s3.charAt(j + i - 1) && f[i - 1][j] || f[i][j];
                 }
             }
         }
