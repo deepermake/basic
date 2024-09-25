@@ -3,6 +3,9 @@ package com.problems.easy;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 326 - 3的幂
+ */
 public class PowerOfThree {
 
     public static void main(String[] args) {
