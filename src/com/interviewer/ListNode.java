@@ -35,4 +35,16 @@ public class ListNode {
         }
         return head;
     }
+
+    public static String printListNode(ListNode head) {
+        String result = "";
+        while (head != null) {
+            result = result.concat(String.valueOf(head.val));
+            head = head.next;
+            if (head != null) {
+                result = result.concat("-->");
+            }
+        }
+        return result;
+    }
 }
