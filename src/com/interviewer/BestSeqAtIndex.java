@@ -1,5 +1,7 @@
 package com.interviewer;
 
+import com.designPatterns.fatory.WindowsFactory;
+
 import java.util.*;
 
 /**
@@ -7,9 +9,9 @@ import java.util.*;
  */
 public class BestSeqAtIndex {
     public static void main(String[] args) {
-        // System.out.println(bestSeqAtIndex2(new int[]{1, 2, 3, 2, 3, 2}, new int[]{7, 3, 3, 4, 5, 7}));
-        System.out.println(bestSeqAtIndex2(new int[]{8378, 8535, 8998, 3766, 648, 6184, 5506, 5648, 3907, 6773}, new int[]{9644, 849, 3232, 3259, 5229, 314, 5593, 9600, 6695, 4340}));
-        // System.out.println(bestSeqAtIndex2(new int[]{65}, new int[]{100}));
+        System.out.println(bestSeqAtIndexBinarySearch(new int[]{1, 2, 3, 2, 3, 2}, new int[]{7, 3, 3, 4, 5, 7}));
+        System.out.println(bestSeqAtIndex2(new int[]{1, 2, 3, 2, 3, 2}, new int[]{7, 3, 3, 4, 5, 7}));
+        // System.out.println(bestSeqAtIndex2(new int[]{8378, 8535, 8998, 3766, 648, 6184, 5506, 5648, 3907, 6773}, new int[]{9644, 849, 3232, 3259, 5229, 314, 5593, 9600, 6695, 4340}));
     }
 
     /**
@@ -51,7 +53,7 @@ public class BestSeqAtIndex {
 
 
     /**
-     * 解题思路
+     * 解题思路 超时
      * dp[i][1]
      * dp[i] = dp[i-1] + arr[i][1]
      *
@@ -80,4 +82,50 @@ public class BestSeqAtIndex {
         Arrays.sort(dp);
         return dp[l - 1] + 1;
     }
+
+
+    public static int bestSeqAtIndexBinarySearch(int[] height, int[] weight) {
+        int l = height.length;
+        int[][] arr = new int[l][2];
+        for (int i = 0; i < l; i++) {
+            arr[i][0] = height[i];
+            arr[i][1] = weight[i];
+        }
+        Arrays.sort(arr, (o1, o2) -> {
+            if (o1[0] == o2[0]) {
+                return Integer.compare(o1[1], o2[1]);
+            }
+            return Integer.compare(o2[0], o1[0]);
+        });
+        int[][] dp = new int[l + 1][2];
+        dp[1] = arr[0];
+        int index = 1;
+        for (int i = 1; i < l; i++) {
+            if (arr[i][1] > dp[index][1]) {
+                dp[++index] = arr[i];
+            } else {
+                int pos = binarySearch(dp, arr[i], index);
+                dp[pos] = arr[i];
+            }
+        }
+        return index;
+    }
+
+    public static int binarySearch(int[][] dp, int[] arr, int index) {
+        int left = 1;
+        int right = index;
+
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (dp[mid][1] <= arr[1]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+
+        }
+        return right;
+    }
+
+
 }
