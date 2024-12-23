@@ -1,5 +1,8 @@
 package com.problems.easy;
 
+/**
+ * LCR 126 斐波那契数
+ */
 public class Fib {
 
     public static void main(String[] args) {
@@ -16,13 +19,17 @@ public class Fib {
         if (n == 0 || n == 1) {
             return n;
         }
+        int[] dp = new int[n + 1];
+        dp[0] = 0;
+        dp[1] = 1;
 
-        int k = 0, t = 1, result = 1;
         for (int i = 2; i <= n; i++) {
-            result = t + k;
-            k = t;
-            t = result;
+            int t = dp[i - 1] + dp[i - 2];
+            if (t - 1000000007 > 0) {
+                t = t % 1000000007;
+            }
+            dp[i] = t;
         }
-        return result;
+        return dp[n];
     }
 }
