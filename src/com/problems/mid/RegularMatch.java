@@ -1,60 +1,60 @@
 package com.problems.mid;
 
+/**
+ * 10 正则表达式匹配
+ */
 public class RegularMatch {
 
     public static void main(String[] args) {
-        System.out.println(isMatch("abb", ".*"));
-        // System.out.println(isMatch("ab", "a"));
+        // System.out.println(isMatch("aaa", "ab*.*"));
+        System.out.println(isMatch("ab", "ab*"));
         // System.out.println(isMatch("abab", ".*b"));
     }
 
     /**
      * 解题思路
+     * dp[i][j] s的前i个字符是否与p的前j个字符匹配
      * '.' 匹配任意单个字符
      * '*' 匹配零个或多个前面的那一个元素
-     * 遍历s逐一比对,记录s和p的下标
-     * 当p中遇到i时，p不变s+1
-     * dp数组表示，s的每个小标是否符合正则要求
-     * dp[i] = dp[i-1] &&
-     * 有几种情况
-     * 1、遍历到p为‘.’时不用考虑是否相等 dp[i] = dp[i-1];
-     * 2、遍历到p为‘*’时表示无线复制前一个dp[i] = dp[i-1];
      *
      * @param s
      * @param p
      * @return
      */
     public static boolean isMatch(String s, String p) {
-        if (p.length() > s.length() || (!p.contains("*") && p.length() != s.length())) {
-            return false;
-        }
-        boolean[] dp = new boolean[s.length()];
-        if (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.') {
-            dp[0] = true;
-        } else {
-            return false;
-        }
-        int j = 1;
-        for (int i = 1; i < s.length(); i++) {
-            if (p.charAt(j) == '.' || s.charAt(i) == p.charAt(j)) {
-                dp[i] = dp[i - 1];
-                j++;
-                continue;
-            }
+        s = " " + s;
+        p = " " + p;
+        boolean[][] dp = new boolean[s.length()][p.length()];
+        char[] srr = s.toCharArray();
+        char[] prr = p.toCharArray();
+        dp[0][0] = true;
 
-            // *表示可以无限复制前一个
-            if (p.charAt(j) == '*') {
-                if (s.charAt(i) == s.charAt(i - 1) || p.charAt(j - 1) == '.') {
-                    dp[i] = dp[i - 1];
-                    if (p.length() - j == s.length() - i) {
-                        j++;
-                    }
+        for (int j = 1; j < prr.length; j++) {
+            if (j > 1 && prr[j] == '*') {
+                dp[0][j] = dp[0][j - 2];
+            }
+        }
+        for (int i = 1; i < srr.length; i++) {
+            for (int j = 1; j < prr.length; j++) {
+                if (prr[j] != '*') {
+                    dp[i][j] = match(srr[i], prr[j]) && dp[i - 1][j - 1];
                     continue;
                 }
+                // *号的情况
+                if (match(srr[i], prr[j - 1])) {
+                    dp[i][j] = dp[i - 1][j] || dp[i][j - 2];
+                } else {
+                    dp[i][j] = dp[i][j - 2];
+                }
             }
-            return false;
         }
+        return dp[s.length() - 1][p.length() - 1];
+    }
 
-        return dp[s.length() - 1];
+    public static boolean match(char s, char p) {
+        if (p == '.') {
+            return true;
+        }
+        return s == p;
     }
 }
