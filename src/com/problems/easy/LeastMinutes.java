@@ -6,10 +6,7 @@ package com.problems.easy;
 public class LeastMinutes {
 
     public static void main(String[] args) {
-        System.out.println(leastMinutes(3));
-        System.out.println(leastMinutes(4));
-        System.out.println(leastMinutes(5));
-        System.out.println(leastMinutes(6));
+        System.out.println(leastMinutes(9));
     }
 
     /**
@@ -24,25 +21,17 @@ public class LeastMinutes {
      * dp[6] = 4
      * dp[7] = 4
      * 0,1,2
-     * dp[i] = Math.min(dp[i-1]+1, dp[i-2]+2)
+     * dp[i] = Math.min(dp[i-1]+1, dp[(i+1)/2]+1)
      *
      * @param n
      * @return
      */
     public static int leastMinutes(int n) {
-        if (n <= 2) {
-            return n;
-        }
-        int[] dp = new int[n + 1];
-        dp[0] = 0;
+        int[] dp = new int[n+1];
         dp[1] = 1;
-        dp[2] = 2;
-        for (int i = 3; i <= n; i++) {
-            dp[i] = i;
-            dp[i] += dp[i-2];
-
+        for (int i = 2; i <= n; i++) {
+            dp[i] = Math.min(dp[i-1] + 1, dp[(i+1)/2] + 1);
         }
-
         return dp[n];
     }
 }
