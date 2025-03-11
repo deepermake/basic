@@ -1,5 +1,8 @@
 package com.problems.easy;
 
+/**
+ * 496 - 下一个更大的元素
+ */
 public class NextGreaterElement {
 
     public static void main(String[] args) {
