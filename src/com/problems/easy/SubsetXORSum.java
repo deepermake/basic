@@ -10,9 +10,9 @@ import java.util.List;
 public class SubsetXORSum {
 
     public static void main(String[] args) {
-        System.out.println(subsetXORSum(new int[]{1, 3}));
-        System.out.println(subsetXORSum(new int[]{5, 1, 6}));
-        System.out.println(subsetXORSum(new int[]{3, 4, 5, 6, 7, 8}));
+        // System.out.println(subsetXORSum2(new int[]{1, 3}));
+        System.out.println(subsetXORSum2(new int[]{5, 1, 6}));
+        // System.out.println(subsetXORSum2(new int[]{3, 4, 5, 6, 7, 8}));
     }
 
     public static int subsetXORSum(int[] nums) {
@@ -55,5 +55,27 @@ public class SubsetXORSum {
             result ^= x;
         }
         return result;
+    }
+
+
+    public static int sum = 0, path = 0;
+    /**
+     * 方法2
+     *
+     * @param nums
+     * @return
+     */
+    public static int subsetXORSum2(int[] nums) {
+        back2(nums,0);
+        return sum;
+    }
+
+    public static void back2(int[] nums, int index) {
+        sum += path;
+        for (int i = index; i < nums.length; i++) {
+            path = path ^ nums[i];
+            back2(nums, i+1);
+            path = path ^ nums[i];
+        }
     }
 }
