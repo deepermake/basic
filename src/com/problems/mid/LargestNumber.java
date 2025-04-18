@@ -9,13 +9,13 @@ import java.util.Objects;
 public class LargestNumber {
 
     public static void main(String[] args) {
-//        System.out.println(largestNumber(new int[]{3, 30, 34, 5, 9}));
-//        System.out.println(largestNumber(new int[]{24, 3, 58, 7, 2,6}));
-        // System.out.println(largestNumber(new int[]{700000000, 500000000}));
-//        System.out.println(largestNumber(new int[]{1, 0, 0}));
-//        System.out.println(largestNumber(new int[]{0, 0}));
-//        System.out.println(largestNumber(new int[]{1000000000,1000000000}));
-        System.out.println(largestNumber(new int[]{111111121, 11111112}));
+        System.out.println(largestNumber2(new int[]{3, 30, 34, 5, 9}));
+        System.out.println(largestNumber2(new int[]{24, 3, 58, 7, 2,6}));
+        System.out.println(largestNumber2(new int[]{700000000, 500000000}));
+        System.out.println(largestNumber2(new int[]{1, 0, 0}));
+        System.out.println(largestNumber2(new int[]{0, 0}));
+        System.out.println(largestNumber2(new int[]{1000000000,1000000000}));
+        System.out.println(largestNumber2(new int[]{111111121, 11111112}));
     }
 
     public static String largestNumber(int[] nums) {
@@ -62,5 +62,32 @@ public class LargestNumber {
             return a.charAt(k) > b.charAt(k) ? i : j;
         }
         return j;
+    }
+
+
+    public static String largestNumber2(int[] nums) {
+
+        String re = "";
+        int len = nums.length;
+        String[] arr = new String[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = "" + nums[i];
+        }
+        Arrays.sort(arr, (a, b) -> {
+            String aa = a + b;
+            String bb = b + a;
+            return aa.compareTo(bb);
+        });
+
+        for (int i = len - 1; i >=0; i--) {
+            re = re.concat(arr[i]);
+        }
+
+        if (re.charAt(0) == '0') {
+            return "0";
+        }
+
+        return re;
+
     }
 }
